@@ -251,29 +251,29 @@ def draw_all():
     draw_model(c, m8())
     c.restore()
     
-    surface.write_to_png("iso.png")
+    surface.write_to_png("img/iso.png")
 
 def main():
 
     draw_all()
 
-    draw_png(m1(), "test_1.png", draw_floor_grid=True, draw_box=True)
-    draw_png(m2(), "test_2.png", draw_floor_grid=False, draw_box=False)
-    draw_png(m3(), "test_3.png", draw_floor_grid=False, draw_box=False)
-    draw_png(m4(), "test_4.png", draw_floor_grid=False, draw_box=False)
-    draw_png(m5(), "test_5.png", draw_floor_grid=False, draw_box=False)
-    draw_png(m6(), "test_6.png", draw_floor_grid=False, draw_box=False)
-    draw_png(m7(), "test_7.png", draw_floor_grid=False, draw_box=False)
-    draw_png(m8(), "test_8.png", draw_floor_grid=False, draw_box=False)
+    draw_png(m1(), "img/test_1.png", draw_floor_grid=True, draw_box=True)
+    draw_png(m2(), "img/test_2.png", draw_floor_grid=False, draw_box=False)
+    draw_png(m3(), "img/test_3.png", draw_floor_grid=False, draw_box=False)
+    draw_png(m4(), "img/test_4.png", draw_floor_grid=False, draw_box=False)
+    draw_png(m5(), "img/test_5.png", draw_floor_grid=False, draw_box=False)
+    draw_png(m6(), "img/test_6.png", draw_floor_grid=False, draw_box=False)
+    draw_png(m7(), "img/test_7.png", draw_floor_grid=False, draw_box=False)
+    draw_png(m8(), "img/test_8.png", draw_floor_grid=False, draw_box=False)
     
-    assert(files_are_equal("test_1.png", "test_1_ref.png"))
-    assert(files_are_equal("test_2.png", "test_2_ref.png"))
-    assert(files_are_equal("test_3.png", "test_3_ref.png"))
-    assert(files_are_equal("test_4.png", "test_4_ref.png"))
-    assert(files_are_equal("test_5.png", "test_5_ref.png"))
-    assert(files_are_equal("test_6.png", "test_6_ref.png"))
-    assert(files_are_equal("test_7.png", "test_7_ref.png"))
-    assert(files_are_equal("test_8.png", "test_8_ref.png"))
+    assert(files_are_equal("img/test_1.png", "img/test_1_ref.png"))
+    assert(files_are_equal("img/test_2.png", "img/test_2_ref.png"))
+    assert(files_are_equal("img/test_3.png", "img/test_3_ref.png"))
+    assert(files_are_equal("img/test_4.png", "img/test_4_ref.png"))
+    assert(files_are_equal("img/test_5.png", "img/test_5_ref.png"))
+    assert(files_are_equal("img/test_6.png", "img/test_6_ref.png"))
+    assert(files_are_equal("img/test_7.png", "img/test_7_ref.png"))
+    assert(files_are_equal("img/test_8.png", "img/test_8_ref.png"))
 
 if __name__ == "__main__":
     
