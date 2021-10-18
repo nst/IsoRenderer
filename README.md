@@ -1,5 +1,5 @@
 # IsoRenderer
-A 2D, Cairo-based isometric renderer in Python 3
+A 2D isometric renderer in Python 3 based on PyCairo
 
 ![Python isometric renderer](img/iso.png "Python isometric renderer")
 
