@@ -124,45 +124,60 @@ def draw_cube(c, shape, x, y, z,
     COLOR_LEFT  = (0.6 * z_ratio, 0,             0)
     COLOR_RIGHT = (1 * z_ratio,   0,             0)
 
-    vertices = []
     
     if flat:
-        vertices.append((p1,p3))
-        vertices.append((p3,p7))
-        vertices.append((p7,p4))
-        vertices.append((p4,p1))
+        vertices = [(p1,p3), (p3,p7), (p7,p4), (p4,p1)]
         draw_surface(c, [], (1,1,1), vertices)
     else:
-    
-        if not nx:#
-            vertices.append((p5, p6))
-            vertices.append((p6, p7))
-        if not ny:
-            vertices.append((p2, p5))
-            vertices.append((p2, p1))
-        if not nz_:
-            vertices.append((p4, p7))
-            vertices.append((p1, p4))
-        if not nx_ and not ny_:
-            vertices.append((p3, p4))
-        if not nz and not ny_:
-            vertices.append((p6, p3))
-        if not nz and not nx_:
-            vertices.append((p2, p3))
-        if nxy_:
-            vertices.append((p6, p7))
-        if nx_z_:
-            vertices.append((p1, p4))
-        if nxz:
-            vertices.append((p5, p6))
-        if nyz:
-            vertices.append((p2, p5))
-        if ny_z_:
-            vertices.append((p4, p7))
+        vertices_x = []
+        vertices_y = []
+        vertices_z = []
         
-        draw_surface(c, [p2, p5, p6, p3], COLOR_TOP, vertices)
-        draw_surface(c, [p1, p2, p3, p4], COLOR_LEFT, vertices)
-        draw_surface(c, [p3, p6, p7, p4], COLOR_RIGHT, vertices)
+        if not nx:
+            vertices_z.append((p5, p6))
+            vertices_x.append((p6, p7))
+        if not ny:
+            vertices_z.append((p2, p5))
+            vertices_y.append((p2, p1))
+        if not nz_:
+            vertices_z.append((p4, p7))
+            vertices_z.append((p1, p4))
+        if not nx_ and not ny_:
+            v = (p3, p4)
+            vertices_z.append(v)
+            vertices_y.append(v)
+        if not nz and not ny_:
+            v = (p6, p3)
+            vertices_z.append(v)
+            vertices_y.append(v)
+        if not nz and not nx_:
+            v = (p2, p3)
+            vertices_x.append(v)
+            vertices_z.append(v)
+        if nxy_:
+            v = (p6, p7)
+            vertices_x.append(v)
+            vertices_y.append(v)
+        if nx_z_:
+            v = (p1, p4)
+            vertices_x.append(v)
+            vertices_z.append(v)
+        if nxz:
+            v = (p5, p6)
+            vertices_x.append(v)
+            vertices_z.append(v)
+        if nyz:
+            v = (p2, p5)
+            vertices_z.append(v)
+            vertices_y.append(v)
+        if ny_z_:
+            v = (p4, p7)
+            vertices_y.append(v)
+            vertices_z.append(v)
+        
+        draw_surface(c, [p3, p6, p7, p4], COLOR_RIGHT, vertices_x)
+        draw_surface(c, [p1, p2, p3, p4], COLOR_LEFT, vertices_y)
+        draw_surface(c, [p2, p5, p6, p3], COLOR_TOP, vertices_z)
     
     c.restore()
 
