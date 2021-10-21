@@ -156,9 +156,14 @@ def draw_cube(c, shape, x, y, z,
             v = (p2, p3)
             vertices_z.append(v)
         
-        draw_surface(c, [p3, p6, p7, p4], COLOR_RIGHT, vertices_x)
-        draw_surface(c, [p1, p2, p3, p4], COLOR_LEFT, vertices_y)
-        draw_surface(c, [p2, p5, p6, p3], COLOR_TOP, vertices_z)
+        if not ny_:
+            draw_surface(c, [p3, p6, p7, p4], COLOR_RIGHT, vertices_x)
+        
+        if not nx_:
+            draw_surface(c, [p1, p2, p3, p4], COLOR_LEFT, vertices_y)
+        
+        if not nz:
+            draw_surface(c, [p2, p5, p6, p3], COLOR_TOP, vertices_z)
     
     c.restore()
 
@@ -182,7 +187,7 @@ def visibility_matrix(m):
         for z in range(Z):
             v[0][y][z] = True
 
-    # iterating from user's standpoint
+    # iterate from user's standpoint
     
     for x in range(X):
         for y in range(Y):
@@ -240,8 +245,6 @@ def draw_model(c, oids, draw_box=False, draw_floor_grid=False):
                 oid = oids[x][y][z]
                 if oid == 0:
                     continue
-                
-                oid = oids[x,y,z]
                 
                 nx  = is_neighbour(oids,x,y,z, 1, 0, 0)
                 nx_ = is_neighbour(oids,x,y,z,-1, 0, 0)
